@@ -1,7 +1,8 @@
-# python-practice
+# Python-Practice
+
 Learning Python with CodeWithHarry
 
-# Python Practice Projects 🐍
+## Python Practice Projects 🐍
 
 This repository contains Python practice projects I'm working on while learning from [CodeWithHarry](https://www.codewithharry.com/). These help me understand core Python concepts.
 
