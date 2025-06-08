@@ -1,0 +1,6 @@
+# In python, varialbes are created when you assign a value to them using the assignment operator '='.
+# Variables can be used to store data of various types, such as integers, floats, strings, and more.
+
+age = 25  # Integer variable
+name = "Alice"  # String variable
+height = 5.5  # Float variable
