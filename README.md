@@ -141,3 +141,113 @@ try:
 except ValueError:
         print("Invalid input! Please enter a valid number.")
 ```
+
+## Operators in Python
+
+Operators are special symbols or keywords that perform operations on operands (variables and values). Python supports several types of operators:
+
+### 1. Arithmetic Operators
+
+Used for mathematical operations:
+
+| Operator | Description        | Example         |
+|----------|-------------------|-----------------|
+| `+`      | Addition          | `a + b`         |
+| `-`      | Subtraction       | `a - b`         |
+| `*`      | Multiplication    | `a * b`         |
+| `/`      | Division          | `a / b`         |
+| `//`     | Floor Division    | `a // b`        |
+| `%`      | Modulus           | `a % b`         |
+| `**`     | Exponentiation    | `a ** b`        |
+
+**Example:**
+
+```python
+x = 10
+y = 3
+print(x + y)   # 13
+print(x / y)   # 3.333...
+print(x // y)  # 3
+print(x % y)   # 1
+print(x ** y)  # 1000
+```
+
+### 2. Assignment Operators
+
+Used to assign values to variables:
+
+| Operator | Example   | Equivalent to   |
+|----------|-----------|----------------|
+| `=`      | `a = 5`   |                |
+| `+=`     | `a += 2`  | `a = a + 2`    |
+| `-=`     | `a -= 2`  | `a = a - 2`    |
+| `*=`     | `a *= 2`  | `a = a * 2`    |
+| `/=`     | `a /= 2`  | `a = a / 2`    |
+| `//=`    | `a //= 2` | `a = a // 2`   |
+| `%=`     | `a %= 2`  | `a = a % 2`    |
+| `**=`    | `a **= 2` | `a = a ** 2`   |
+
+### 3. Comparison Operators
+
+Used to compare values; result is `True` or `False`:
+
+| Operator | Description         | Example      |
+|----------|--------------------|--------------|
+| `==`     | Equal to           | `a == b`     |
+| `!=`     | Not equal to       | `a != b`     |
+| `>`      | Greater than       | `a > b`      |
+| `<`      | Less than          | `a < b`      |
+| `>=`     | Greater or equal   | `a >= b`     |
+| `<=`     | Less or equal      | `a <= b`     |
+
+### 4. Logical Operators
+
+Used to combine conditional statements:
+
+| Operator | Description | Example           |
+|----------|-------------|-------------------|
+| `and`    | Logical AND | `a > 2 and b < 5` |
+| `or`     | Logical OR  | `a > 2 or b < 5`  |
+| `not`    | Logical NOT | `not(a > 2)`      |
+
+### 5. Membership Operators
+
+Test if a value is in a sequence:
+
+| Operator | Description      | Example         |
+|----------|-----------------|-----------------|
+| `in`     | Value present   | `'a' in 'cat'`  |
+| `not in` | Value not present | `'x' not in 'cat'` |
+
+### 6. Identity Operators
+
+Compare memory locations of two objects:
+
+| Operator | Description      | Example     |
+|----------|-----------------|-------------|
+| `is`     | Same object     | `a is b`    |
+| `is not` | Not same object | `a is not b`|
+
+### 7. Bitwise Operators
+
+Operate on binary representations:
+
+| Operator | Description      | Example    |
+|----------|-----------------|------------|
+| `&`      | AND             | `a & b`    |
+| `|`      | OR              | `a | b`    |
+| `^`      | XOR             | `a ^ b`    |
+| `~`      | NOT             | `~a`       |
+| `<<`     | Left Shift      | `a << 2`   |
+| `>>`     | Right Shift     | `a >> 2`   |
+
+**Example:**
+
+```python
+a = 5      # 0b0101
+b = 3      # 0b0011
+print(a & b)  # 1 (0b0001)
+print(a | b)  # 7 (0b0111)
+```
+
+> **Tip:** Use parentheses to clarify complex expressions and control operator precedence.
