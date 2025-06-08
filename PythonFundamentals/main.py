@@ -8,4 +8,7 @@ height = 5.5  # Float variable
 # working with user input
 a = input("Enter a number: ")  # Input is always a string
 b = input("Enter another number: ")  
-print(a+b)
+# print(a+b)
+
+print("Hello world!", end="!\n")
+print("My name is", name, "and I am", age, "years old.")
