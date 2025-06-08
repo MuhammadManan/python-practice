@@ -21,7 +21,7 @@ python main.py
 
 ## Note on Python's Typing
 
-Python is a dynamically typed language, meaning you don't need to declare variable types explicitly. The type of a variable is determined at runtime, unlike statically typed languages where types are checked at compile time
+Python is a dynamically typed language, meaning you don't need to declare variable types explicitly. The type of a variable is determined at runtime, unlike statically typed languages where types are checked at compile time.
 
 ## Variable Naming Rules in Python
 
@@ -54,7 +54,7 @@ valid_name_2 = 30
 - Python uses dynamic typing; variable types can change at runtime.
 - Use `import` to include modules and libraries.
 - Functions are defined using the `def` keyword.
-- Code should follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guidelines for readability
+- Code should follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guidelines for readability.
 
 ## Built-in Data Types in Python
 
@@ -115,4 +115,29 @@ e = bool(0)     # e is False
 f = list("abc") # f is ['a', 'b', 'c']
 ```
 
-Typecasting is useful when you need to perform operations that require specific data types.
+### Example: Taking Input and Typecasting
+
+When you use the `input()` function in Python, the value you get is always of type `str` (string), even if the user enters a number. You need to typecast it to the desired type before using it in calculations.
+
+```python
+user_input = input("Enter a number: ")  # input is always a string
+print(type(user_input))                 # <class 'str'>
+
+# Convert input to integer
+number = int(user_input)
+print(number + 10)                      # Now you can perform arithmetic
+```
+
+> **Important Note:**  
+> Always validate user input before typecasting to avoid runtime errors. For example, converting a non-numeric string to `int` will raise a `ValueError`. Use `try`/`except` blocks to handle such cases gracefully.
+
+**Example with input validation:**
+
+```python
+user_input = input("Enter a number: ")
+try:
+        number = int(user_input)
+        print("You entered:", number)
+except ValueError:
+        print("Invalid input! Please enter a valid number.")
+```
