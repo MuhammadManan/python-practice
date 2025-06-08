@@ -17,14 +17,20 @@ else:
 #     print(f"5 x {i} = {5 * i}")
 #     i += 1
 
-c = 32
+# c = 32
 
-match c:
-    case 1:
-        print("c is 1")
-    case 2:
-        print("c is 2")
-    case 3:
-        print("c is 3")    
-    case _:
-        print("c is something else")
+# match c:
+#     case 1:
+#         print("c is 1")
+#     case 2:
+#         print("c is 2")
+#     case 3:
+#         print("c is 3")    
+#     case _:
+#         print("c is something else")
+
+i = 1
+if i == 1:
+    pass  # This will do nothing
+
+print("This is a placeholder for future code.")
