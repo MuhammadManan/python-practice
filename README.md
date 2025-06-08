@@ -93,3 +93,26 @@ user = {"id": 1}        # dict
 unique = {1, 2, 3}      # set
 nothing = None          # NoneType
 ```
+
+## Typecasting in Python
+
+Typecasting is the process of converting a variable from one data type to another. Python provides built-in functions for typecasting:
+
+- `int()`: Converts to integer
+- `float()`: Converts to floating-point number
+- `str()`: Converts to string
+- `bool()`: Converts to boolean
+- `list()`, `tuple()`, `set()`, `dict()`: Convert to respective collection types
+
+**Examples:**
+
+```python
+a = "123"
+b = int(a)      # b is now 123 (int)
+c = float(a)    # c is now 123.0 (float)
+d = str(456)    # d is now "456" (str)
+e = bool(0)     # e is False
+f = list("abc") # f is ['a', 'b', 'c']
+```
+
+Typecasting is useful when you need to perform operations that require specific data types.
