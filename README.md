@@ -938,3 +938,80 @@ print(dir(d))             # Lists all attributes/methods
 > **Tip:** Introspection is useful for debugging, dynamic programming, and working with unfamiliar objects or libraries.
 
 For more, see the [official Python data model documentation](https://docs.python.org/3/reference/datamodel.html).
+
+## Inheritance and the `super()` Function in Python
+
+**Inheritance** is an OOP feature that allows a class (child or subclass) to inherit attributes and methods from another class (parent or superclass). This promotes code reuse and logical hierarchy.
+
+### Basic Inheritance
+
+To inherit from a class, specify the parent class in parentheses:
+
+```python
+class Animal:
+  def speak(self):
+    print("Animal speaks")
+
+class Dog(Animal):
+  def bark(self):
+    print("Dog barks")
+
+d = Dog()
+d.speak()  # Inherited from Animal
+d.bark()   # Defined in Dog
+```
+
+### Overriding Methods
+
+A subclass can override methods from its parent class:
+
+```python
+class Animal:
+  def speak(self):
+    print("Animal speaks")
+
+class Cat(Animal):
+  def speak(self):
+    print("Meow!")
+
+c = Cat()
+c.speak()  # Output: Meow!
+```
+
+### The `super()` Function
+
+The `super()` function allows you to call methods from the parent class, often used when overriding methods to extend, not replace, parent behavior.
+
+```python
+class Animal:
+  def __init__(self, name):
+    self.name = name
+
+  def speak(self):
+    print(f"{self.name} makes a sound")
+
+class Dog(Animal):
+  def __init__(self, name, breed):
+    super().__init__(name)  # Call parent constructor
+    self.breed = breed
+
+  def speak(self):
+    super().speak()         # Call parent method
+    print(f"{self.name} barks")
+
+d = Dog("Buddy", "Labrador")
+d.speak()
+# Output:
+# Buddy makes a sound
+# Buddy barks
+```
+
+### Key Points
+
+- Inheritance enables code reuse and logical relationships.
+- Use `super()` to access parent class methods and constructors.
+- Python supports multiple inheritance, but use it carefully to avoid complexity.
+
+> **Tip:** Use inheritance for "is-a" relationships (e.g., Dog is an Animal).
+
+For more, see the [official Python inheritance documentation](https://docs.python.org/3/tutorial/classes.html#inheritance).
