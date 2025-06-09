@@ -548,3 +548,71 @@ print(pairs)  # [(1, 3), (1, 4), (2, 3), (2, 4)]
 > **Tip:** List comprehensions are more readable and efficient for simple list transformations.
 
 For more, see the [official Python list comprehensions documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
+
+## Tuples in Python
+
+A **tuple** is an ordered, immutable collection of items. Once created, the elements of a tuple cannot be changed, added, or removed. Tuples are useful for grouping related data and for situations where immutability is desired.
+
+### Creating Tuples
+
+- Use parentheses `()` or simply separate values with commas.
+- For a single-element tuple, include a trailing comma.
+
+```python
+t1 = (1, 2, 3)
+t2 = 4, 5, 6
+t3 = (7,)        # Single-element tuple
+empty = ()       # Empty tuple
+```
+
+### Accessing Tuple Elements
+
+- Use indexing and slicing, similar to lists.
+
+```python
+t = (10, 20, 30, 40)
+print(t[1])      # 20
+print(t[:2])     # (10, 20)
+```
+
+### Tuple Methods
+
+Tuples have only two built-in methods:
+
+| Method        | Description                                 | Example                |
+|---------------|---------------------------------------------|------------------------|
+| `count(x)`    | Returns the number of times `x` appears     | `t.count(10)`          |
+| `index(x)`    | Returns the index of the first occurrence   | `t.index(30)`          |
+
+### Tuple Packing and Unpacking
+
+- **Packing:** Assigning multiple values to a tuple.
+- **Unpacking:** Assigning tuple elements to variables.
+
+```python
+point = (3, 4)
+x, y = point
+print(x)    # 3
+print(y)    # 4
+```
+
+### Immutability
+
+- Tuples cannot be changed after creation.
+- However, if a tuple contains mutable objects (like lists), those objects can be changed.
+
+```python
+t = (1, [2, 3])
+t[1][0] = 99
+print(t)    # (1, [99, 3])
+```
+
+### When to Use Tuples
+
+- When you need an immutable sequence of items.
+- As keys in dictionaries (if all elements are immutable).
+- For returning multiple values from a function.
+
+> **Tip:** Use tuples for fixed collections of items and lists for mutable sequences.
+
+For more, see the [official Python tuple documentation](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
