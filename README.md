@@ -616,3 +616,64 @@ print(t)    # (1, [99, 3])
 > **Tip:** Use tuples for fixed collections of items and lists for mutable sequences.
 
 For more, see the [official Python tuple documentation](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
+
+
+## Sets in Python
+
+A **set** is an unordered collection of unique, immutable elements. Sets are useful for membership testing, removing duplicates, and performing mathematical set operations like union, intersection, and difference.
+
+### Creating Sets
+
+- Use curly braces `{}` or the `set()` constructor.
+- Duplicates are automatically removed.
+
+```python
+s1 = {1, 2, 3}
+s2 = set([2, 3, 4])
+empty_set = set()  # Note: {} creates an empty dict, not a set
+```
+
+### Common Set Methods
+
+| Method            | Description                                         | Example                      |
+|-------------------|-----------------------------------------------------|------------------------------|
+| `add(x)`          | Adds element `x` to the set                         | `s.add(5)`                   |
+| `update(iterable)`| Adds all elements from an iterable                  | `s.update([6, 7])`           |
+| `remove(x)`       | Removes `x`; raises `KeyError` if not found         | `s.remove(2)`                |
+| `discard(x)`      | Removes `x` if present; does nothing if not         | `s.discard(3)`               |
+| `pop()`           | Removes and returns an arbitrary element            | `item = s.pop()`             |
+| `clear()`         | Removes all elements from the set                   | `s.clear()`                  |
+| `copy()`          | Returns a shallow copy of the set                   | `s2 = s.copy()`              |
+
+### Set Operations
+
+Python sets support standard mathematical set operations, either as methods or operators:
+
+| Operation         | Method                | Operator | Example                |
+|-------------------|----------------------|----------|------------------------|
+| Union             | `set1.union(set2)`    | `|`      | `s1 | s2`              |
+| Intersection      | `set1.intersection(s)`| `&`      | `s1 & s2`              |
+| Difference        | `set1.difference(s)`  | `-`      | `s1 - s2`              |
+| Symmetric Diff.   | `set1.symmetric_difference(s)` | `^` | `s1 ^ s2`         |
+| Subset            | `set1.issubset(s)`    | `<=`     | `s1 <= s2`             |
+| Superset          | `set1.issuperset(s)`  | `>=`     | `s1 >= s2`             |
+| Disjoint          | `set1.isdisjoint(s)`  |          | `s1.isdisjoint(s2)`    |
+
+### Examples
+
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+
+print(a | b)   # Union: {1, 2, 3, 4, 5}
+print(a & b)   # Intersection: {3}
+print(a - b)   # Difference: {1, 2}
+print(a ^ b)   # Symmetric Difference: {1, 2, 4, 5}
+
+a.add(6)       # {1, 2, 3, 6}
+a.discard(2)   # {1, 3, 6}
+```
+
+> **Tip:** Sets are unordered and do not support indexing or slicing.
+
+For more, see the [official Python set documentation](https://docs.python.org/3/library/stdtypes.html#set).
