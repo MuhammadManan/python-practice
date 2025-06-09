@@ -470,3 +470,81 @@ print(squared)  # Output: [1, 4, 9, 16, 25]
 > **Tip:** Use lambda functions for simple operations; for complex logic, use a regular `def` function.
 
 For more, see the [official Python lambda documentation](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions).
+
+## List Methods in Python
+
+Lists are mutable, ordered collections in Python with many built-in methods for adding, removing, and manipulating elements.
+
+### Common List Methods
+
+| Method              | Description                                         | Example                                 |
+|---------------------|-----------------------------------------------------|-----------------------------------------|
+| `append(x)`         | Adds item `x` to the end of the list                | `lst.append(4)`                         |
+| `extend(iterable)`  | Adds all items from an iterable to the end          | `lst.extend([5, 6])`                    |
+| `insert(i, x)`      | Inserts item `x` at position `i`                    | `lst.insert(1, 10)`                     |
+| `remove(x)`         | Removes first occurrence of `x`                     | `lst.remove(2)`                         |
+| `pop([i])`          | Removes and returns item at index `i` (default last)| `lst.pop()`                             |
+| `clear()`           | Removes all items from the list                     | `lst.clear()`                           |
+| `index(x)`          | Returns index of first occurrence of `x`            | `lst.index(3)`                          |
+| `count(x)`          | Returns number of occurrences of `x`                | `lst.count(2)`                          |
+| `sort()`            | Sorts the list in place                             | `lst.sort()`                            |
+| `reverse()`         | Reverses the list in place                          | `lst.reverse()`                         |
+| `copy()`            | Returns a shallow copy of the list                  | `lst2 = lst.copy()`                     |
+
+**Example:**
+
+```python
+lst = [1, 2, 3]
+lst.append(4)           # [1, 2, 3, 4]
+lst.extend([5, 6])      # [1, 2, 3, 4, 5, 6]
+lst.insert(0, 0)        # [0, 1, 2, 3, 4, 5, 6]
+lst.remove(3)           # [0, 1, 2, 4, 5, 6]
+item = lst.pop()        # item=6, lst=[0, 1, 2, 4, 5]
+lst.sort()              # [0, 1, 2, 4, 5]
+lst.reverse()           # [5, 4, 2, 1, 0]
+```
+
+For more, see the [official Python list methods documentation](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+
+---
+
+## List Comprehension
+
+**List comprehension** provides a concise way to create lists using a single line of code, often replacing loops for generating new lists.
+
+### Syntax
+
+```python
+[expression for item in iterable if condition]
+```
+
+- `expression`: The value to put in the new list.
+- `item`: The variable representing each element in the iterable.
+- `condition` (optional): Only include items where this is `True`.
+
+### Examples
+
+**Basic list comprehension:**
+
+```python
+squares = [x ** 2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+```
+
+**With condition:**
+
+```python
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]
+```
+
+**Nested list comprehension:**
+
+```python
+pairs = [(x, y) for x in [1, 2] for y in [3, 4]]
+print(pairs)  # [(1, 3), (1, 4), (2, 3), (2, 4)]
+```
+
+> **Tip:** List comprehensions are more readable and efficient for simple list transformations.
+
+For more, see the [official Python list comprehensions documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
