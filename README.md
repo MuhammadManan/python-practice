@@ -1079,3 +1079,67 @@ print(p3.x, p3.y)  # Output: 4 6
 > **Tip:** Operator overloading makes your custom classes behave more like built-in types, improving code readability and usability.
 
 For more, see the [official Python data model documentation](https://docs.python.org/3/reference/datamodel.html#special-method-names).
+
+## Decorators in Python
+
+A **decorator** is a function that takes another function (or method) as input and extends or modifies its behavior without changing its source code. Decorators are widely used for logging, access control, timing, memoization, and more.
+
+### Basic Decorator Syntax
+
+```python
+def my_decorator(func):
+  def wrapper():
+    print("Before function call")
+    func()
+    print("After function call")
+  return wrapper
+
+@my_decorator
+def say_hello():
+  print("Hello!")
+
+say_hello()
+# Output:
+# Before function call
+# Hello!
+# After function call
+```
+
+- The `@my_decorator` syntax is equivalent to `say_hello = my_decorator(say_hello)`.
+
+### Decorators with Arguments
+
+To create a decorator that accepts its own arguments, you need an extra level of nesting: a function that returns a decorator.
+
+```python
+def repeat(n):
+  def decorator(func):
+    def wrapper(*args, **kwargs):
+      for _ in range(n):
+        func(*args, **kwargs)
+    return wrapper
+  return decorator
+
+@repeat(3)
+def greet(name):
+  print(f"Hello, {name}!")
+
+greet("Alice")
+# Output:
+# Hello, Alice!
+# Hello, Alice!
+# Hello, Alice!
+```
+
+- Here, `repeat(3)` returns a decorator that repeats the function call 3 times.
+
+### Key Points
+
+- Decorators are functions that modify the behavior of other functions.
+- Use `@decorator_name` syntax for cleaner code.
+- Decorators with arguments require an extra enclosing function.
+- Use `functools.wraps` to preserve the original function’s metadata (optional but recommended).
+
+> **Tip:** Decorators are a powerful tool for code reuse and separation of concerns.
+
+For more, see the [official Python decorator documentation](https://docs.python.org/3/glossary.html#term-decorator).
