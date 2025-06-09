@@ -12,5 +12,6 @@ print(int(o1+o2))"""
 import function
 import requests
 
+print(function.even_odd.__doc__)
 number = int(input("Enter a number: "))
 print(f"{number} is {function.even_odd(number)}")
