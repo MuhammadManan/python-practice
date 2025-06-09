@@ -251,3 +251,52 @@ print(a | b)  # 7 (0b0111)
 ```
 
 > **Tip:** Use parentheses to clarify complex expressions and control operator precedence.
+
+
+## String Methods and Functions in Python
+
+Strings in Python are sequences of characters and come with many built-in methods for manipulation and analysis. Here are some commonly used string methods and functions:
+
+### Common String Methods
+
+| Method            | Description                                      | Example                        |
+|-------------------|--------------------------------------------------|--------------------------------|
+| `str.upper()`     | Converts all characters to uppercase              | `"hello".upper()` → `"HELLO"`  |
+| `str.lower()`     | Converts all characters to lowercase              | `"Hello".lower()` → `"hello"`  |
+| `str.title()`     | Capitalizes the first letter of each word         | `"hello world".title()` → `"Hello World"` |
+| `str.capitalize()`| Capitalizes the first character                   | `"python".capitalize()` → `"Python"` |
+| `str.strip()`     | Removes leading/trailing whitespace               | `"  hi  ".strip()` → `"hi"`    |
+| `str.lstrip()`    | Removes leading whitespace                        | `"  hi".lstrip()` → `"hi"`     |
+| `str.rstrip()`    | Removes trailing whitespace                       | `"hi  ".rstrip()` → `"hi"`     |
+| `str.replace(a, b)`| Replaces substring `a` with `b`                  | `"cat".replace("c", "b")` → `"bat"` |
+| `str.find(sub)`   | Returns lowest index of substring, or `-1` if not found | `"hello".find("e")` → `1` |
+| `str.count(sub)`  | Counts occurrences of substring                   | `"banana".count("a")` → `3`    |
+| `str.split(sep)`  | Splits string into a list by separator            | `"a,b,c".split(",")` → `['a','b','c']` |
+| `str.join(list)`  | Joins elements of a list into a string            | `",".join(['a','b','c'])` → `"a,b,c"` |
+| `str.startswith(prefix)` | Checks if string starts with prefix         | `"hello".startswith("he")` → `True` |
+| `str.endswith(suffix)`   | Checks if string ends with suffix           | `"hello".endswith("lo")` → `True` |
+
+### String Functions
+
+- `len(s)`: Returns the length of the string.
+- `str()`: Converts an object to a string.
+- `ord(c)`: Returns the Unicode code point of character `c`.
+- `chr(i)`: Returns the character for Unicode code point `i`.
+
+### Examples
+
+```python
+s = "  Hello, Python!  "
+print(s.strip())            # "Hello, Python!"
+print(s.lower())            # "  hello, python!  "
+print(s.replace("Python", "World"))  # "  Hello, World!  "
+print(len(s))               # 17
+
+words = "apple,banana,cherry"
+fruits = words.split(",")   # ['apple', 'banana', 'cherry']
+joined = "-".join(fruits)   # "apple-banana-cherry"
+```
+
+> **Tip:** Strings are immutable in Python, so string methods return new strings and do not modify the original.
+
+For more, see the [official Python string methods documentation](https://docs.python.org/3/library/stdtypes.html#string-methods).
