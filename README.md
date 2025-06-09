@@ -782,3 +782,159 @@ print(students["Alice"]["grade"])  # A
 
 For more, see the [official Python dictionary documentation](https://docs.python.org/3/library/stdtypes.html#dict).
 
+
+## Object-Oriented Programming (OOP) in Python
+
+**Object-Oriented Programming (OOP)** is a programming paradigm that organizes code using objects and classes. It helps structure programs by bundling data and functionality together, making code more modular, reusable, and easier to maintain.
+
+### Classes and Objects
+
+- **Class:** A blueprint for creating objects. It defines attributes (data) and methods (functions) that the objects created from the class will have.
+- **Object:** An instance of a class. Each object can have different values for its attributes but shares the structure and behavior defined by the class.
+
+#### Example: Defining and Using a Class
+
+```python
+class Dog:
+  def __init__(self, name, age):
+    self.name = name      # Attribute
+    self.age = age        # Attribute
+
+  def bark(self):
+    print(f"{self.name} says woof!")
+
+# Creating objects (instances)
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
+
+dog1.bark()  # Output: Buddy says woof!
+dog2.bark()  # Output: Max says woof!
+```
+
+### The `__init__` Constructor
+
+- The `__init__` method is a special method called a **constructor**.
+- It runs automatically when a new object is created from a class.
+- It is used to initialize the object's attributes.
+
+```python
+class Person:
+  def __init__(self, name):
+    self.name = name
+
+p = Person("Alice")
+print(p.name)  # Output: Alice
+```
+
+### The `self` Parameter
+
+- `self` refers to the current instance of the class.
+- It is used to access attributes and methods within the class.
+- It must be the first parameter of methods in the class (including `__init__`), but you do not pass it explicitly when calling methods.
+
+```python
+class Counter:
+  def __init__(self):
+    self.count = 0
+
+  def increment(self):
+    self.count += 1
+
+c = Counter()
+c.increment()
+print(c.count)  # Output: 1
+```
+
+### Key Points
+
+- Use classes to model real-world entities and encapsulate related data and behavior.
+- Objects are created from classes and can have unique attribute values.
+- The `__init__` constructor initializes new objects.
+- Use `self` to refer to the instance inside class methods.
+
+> **Tip:** OOP concepts like inheritance, encapsulation, and polymorphism are also supported in Python for building more complex systems.
+
+For more, see the [official Python OOP documentation](https://docs.python.org/3/tutorial/classes.html).
+
+## Instance vs. Class Attributes
+
+In Python, attributes can be defined at the **instance** level or the **class** level.
+
+### Instance Attributes
+
+- Defined inside methods (usually `__init__`) using `self`.
+- Unique to each object (instance) of the class.
+- Changing an instance attribute affects only that specific object.
+
+```python
+class Car:
+  def __init__(self, color):
+    self.color = color  # Instance attribute
+
+car1 = Car("red")
+car2 = Car("blue")
+print(car1.color)  # red
+print(car2.color)  # blue
+```
+
+### Class Attributes
+
+- Defined directly inside the class, outside any methods.
+- Shared by all instances of the class.
+- Changing a class attribute affects all instances (unless overridden by an instance attribute).
+
+```python
+class Car:
+  wheels = 4  # Class attribute
+
+car1 = Car()
+car2 = Car()
+print(car1.wheels)  # 4
+print(car2.wheels)  # 4
+
+Car.wheels = 6
+print(car1.wheels)  # 6
+print(car2.wheels)  # 6
+```
+
+- If you assign to `self.wheels` on an instance, it creates an instance attribute that shadows the class attribute for that object.
+
+> **Tip:** Use class attributes for properties common to all objects, and instance attributes for properties unique to each object.
+
+---
+
+## Object Introspection in Python
+
+**Introspection** is the ability to examine the type or properties of an object at runtime. Python provides several built-in functions and attributes for introspection:
+
+### Common Introspection Tools
+
+- `type(obj)`: Returns the type of the object.
+- `id(obj)`: Returns the unique identifier for the object.
+- `dir(obj)`: Lists all attributes and methods of the object.
+- `hasattr(obj, name)`: Checks if the object has an attribute.
+- `getattr(obj, name[, default])`: Gets the value of an attribute.
+- `setattr(obj, name, value)`: Sets the value of an attribute.
+- `isinstance(obj, cls)`: Checks if the object is an instance of a class or tuple of classes.
+- `issubclass(sub, super)`: Checks if a class is a subclass of another.
+
+### Example
+
+```python
+class Dog:
+  species = "Canine"
+  def __init__(self, name):
+    self.name = name
+
+d = Dog("Buddy")
+
+print(type(d))            # <class '__main__.Dog'>
+print(isinstance(d, Dog)) # True
+print(hasattr(d, "name")) # True
+print(getattr(d, "name")) # Buddy
+print(dir(d))             # Lists all attributes/methods
+```
+
+> **Tip:** Introspection is useful for debugging, dynamic programming, and working with unfamiliar objects or libraries.
+
+For more, see the [official Python data model documentation](https://docs.python.org/3/reference/datamodel.html).
