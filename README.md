@@ -1015,3 +1015,67 @@ d.speak()
 > **Tip:** Use inheritance for "is-a" relationships (e.g., Dog is an Animal).
 
 For more, see the [official Python inheritance documentation](https://docs.python.org/3/tutorial/classes.html#inheritance).
+
+## Method Overriding in Python
+
+**Method overriding** occurs when a subclass provides a specific implementation of a method that is already defined in its parent class. The overridden method in the subclass replaces the parent class’s version when called on an instance of the subclass.
+
+### Example
+
+```python
+class Animal:
+  def speak(self):
+    print("Animal speaks")
+
+class Dog(Animal):
+  def speak(self):
+    print("Dog barks")
+
+a = Animal()
+d = Dog()
+a.speak()  # Output: Animal speaks
+d.speak()  # Output: Dog barks
+```
+
+- The `Dog` class overrides the `speak` method of `Animal`.
+- You can still call the parent method using `super()` if needed.
+
+> **Tip:** Overriding is useful for customizing or extending inherited behavior.
+
+---
+
+## Operator Overloading in Python
+
+**Operator overloading** allows you to define custom behavior for standard operators (`+`, `-`, `*`, etc.) in your own classes by implementing special methods (also called "magic methods" or "dunder methods").
+
+### Example: Overloading `+` Operator
+
+```python
+class Point:
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+
+  def __add__(self, other):
+    return Point(self.x + other.x, self.y + other.y)
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+p3 = p1 + p2  # Calls p1.__add__(p2)
+print(p3.x, p3.y)  # Output: 4 6
+```
+
+### Common Operator Overloading Methods
+
+| Operator | Method         | Example Usage   |
+|----------|---------------|-----------------|
+| `+`      | `__add__`     | `a + b`         |
+| `-`      | `__sub__`     | `a - b`         |
+| `*`      | `__mul__`     | `a * b`         |
+| `/`      | `__truediv__` | `a / b`         |
+| `==`     | `__eq__`      | `a == b`        |
+| `<`      | `__lt__`      | `a < b`         |
+
+> **Tip:** Operator overloading makes your custom classes behave more like built-in types, improving code readability and usability.
+
+For more, see the [official Python data model documentation](https://docs.python.org/3/reference/datamodel.html#special-method-names).
