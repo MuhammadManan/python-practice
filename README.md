@@ -359,3 +359,114 @@ print("Pi rounded to 2 decimals: {:.2f}".format(pi))   # format()
 > **Tip:** f-Strings are recommended for new code due to their readability and performance.
 
 For more details, see the [official Python f-strings documentation](https://docs.python.org/3/reference/lexical_analysis.html#f-strings).
+
+## Functions and Arguments in Python
+
+Functions are reusable blocks of code that perform a specific task. You define a function using the `def` keyword, followed by the function name and parentheses containing parameters.
+
+### Defining a Function
+
+```python
+def greet(name):
+  print(f"Hello, {name}!")
+```
+
+### Calling a Function
+
+```python
+greet("Harry")  # Output: Hello, Harry!
+```
+
+---
+
+## Function Arguments
+
+Python functions can accept different types of arguments:
+
+### 1. Positional Arguments
+
+Arguments passed to a function in the correct positional order.
+
+```python
+def add(a, b):
+  return a + b
+
+result = add(2, 3)  # a=2, b=3
+```
+
+### 2. Keyword Arguments
+
+Arguments passed by explicitly specifying the parameter name, regardless of their position.
+
+```python
+def introduce(name, age):
+  print(f"{name} is {age} years old.")
+
+introduce(age=25, name="Harry")  # Order doesn't matter
+```
+
+### 3. Default Arguments
+
+You can assign default values to parameters. If the argument is not provided, the default is used.
+
+```python
+def greet(name, message="Hello"):
+  print(f"{message}, {name}!")
+
+greet("Harry")                # Output: Hello, Harry!
+greet("Harry", message="Hi")  # Output: Hi, Harry!
+```
+
+### 4. Mixing Arguments
+
+Positional arguments must come before keyword arguments.
+
+```python
+def power(base, exponent=2):
+  return base ** exponent
+
+print(power(3))         # 9 (exponent defaults to 2)
+print(power(3, 3))      # 27
+print(power(base=2, exponent=5))  # 32
+```
+
+> **Tip:** Use keyword arguments for clarity, especially when a function has many parameters or default values.
+
+For more, see the [official Python functions documentation](https://docs.python.org/3/tutorial/controlflow.html#defining-functions).
+
+## Lambda Functions in Python
+
+A **lambda function** is a small, anonymous function defined with the `lambda` keyword. Lambda functions can have any number of arguments but only one expression. They are often used for short, simple operations where defining a full function is unnecessary.
+
+### Syntax
+
+```python
+lambda arguments: expression
+```
+
+### Example
+
+```python
+add = lambda x, y: x + y
+print(add(2, 3))  # Output: 5
+```
+
+### Usage
+
+Lambda functions are commonly used with functions like `map()`, `filter()`, and `sorted()`:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # Output: [1, 4, 9, 16, 25]
+```
+
+### Key Points
+
+- Lambda functions are limited to a single expression.
+- They return the value of the expression automatically.
+- Useful for short, throwaway functions.
+
+> **Tip:** Use lambda functions for simple operations; for complex logic, use a regular `def` function.
+
+For more, see the [official Python lambda documentation](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions).
