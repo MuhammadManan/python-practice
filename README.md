@@ -300,3 +300,62 @@ joined = "-".join(fruits)   # "apple-banana-cherry"
 > **Tip:** Strings are immutable in Python, so string methods return new strings and do not modify the original.
 
 For more, see the [official Python string methods documentation](https://docs.python.org/3/library/stdtypes.html#string-methods).
+
+## String Formatting: f-Strings and `format()`
+
+Python provides several ways to format strings, with f-strings (formatted string literals) and the `str.format()` method being the most common and modern approaches.
+
+### f-Strings (Python 3.6+)
+
+f-Strings allow you to embed expressions inside string literals, using curly braces `{}`. Prefix the string with `f` or `F`.
+
+**Example:**
+
+```python
+name = "Harry"
+age = 25
+print(f"My name is {name} and I am {age} years old.")
+# Output: My name is Harry and I am 25 years old.
+```
+
+You can also use expressions inside the curly braces:
+
+```python
+a = 5
+b = 10
+print(f"Sum: {a + b}")
+# Output: Sum: 15
+```
+
+### `str.format()` Method
+
+The `format()` method inserts values into placeholders `{}` in a string.
+
+**Example:**
+
+```python
+name = "Harry"
+age = 25
+print("My name is {} and I am {} years old.".format(name, age))
+# Output: My name is Harry and I am 25 years old.
+```
+
+You can use positional or named arguments:
+
+```python
+print("Name: {n}, Age: {a}".format(n=name, a=age))
+```
+
+### Formatting Numbers
+
+You can format numbers (e.g., decimals, padding) with both f-strings and `format()`:
+
+```python
+pi = 3.14159
+print(f"Pi rounded to 2 decimals: {pi:.2f}")           # f-string
+print("Pi rounded to 2 decimals: {:.2f}".format(pi))   # format()
+```
+
+> **Tip:** f-Strings are recommended for new code due to their readability and performance.
+
+For more details, see the [official Python f-strings documentation](https://docs.python.org/3/reference/lexical_analysis.html#f-strings).
