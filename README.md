@@ -677,3 +677,108 @@ a.discard(2)   # {1, 3, 6}
 > **Tip:** Sets are unordered and do not support indexing or slicing.
 
 For more, see the [official Python set documentation](https://docs.python.org/3/library/stdtypes.html#set).
+## Dictionaries in Python
+
+A **dictionary** is an unordered, mutable collection of key-value pairs. Keys must be unique and immutable (e.g., strings, numbers, tuples), while values can be of any type. Dictionaries are widely used for fast lookups and data organization, making them a common interview topic.
+
+### Creating Dictionaries
+
+```python
+# Using curly braces
+person = {"name": "Alice", "age": 30, "city": "New York"}
+
+# Using dict() constructor
+person2 = dict(name="Bob", age=25)
+
+# Empty dictionary
+empty_dict = {}
+```
+
+### Accessing and Modifying Values
+
+```python
+print(person["name"])      # Alice
+person["age"] = 31         # Update value
+person["email"] = "alice@example.com"  # Add new key-value pair
+```
+
+- Accessing a non-existent key raises `KeyError`. Use `.get()` to avoid this:
+
+```python
+print(person.get("salary", 0))  # Returns 0 if "salary" not found
+```
+
+### Removing Items
+
+- `del person["city"]` — Removes key "city"
+- `person.pop("age")` — Removes and returns value for "age"
+- `person.clear()` — Removes all items
+
+### Dictionary Methods
+
+| Method                | Description                                      | Example                                 |
+|-----------------------|--------------------------------------------------|-----------------------------------------|
+| `dict.keys()`         | Returns a view of all keys                       | `person.keys()`                         |
+| `dict.values()`       | Returns a view of all values                     | `person.values()`                       |
+| `dict.items()`        | Returns a view of (key, value) pairs             | `person.items()`                        |
+| `dict.get(key, default)` | Returns value for key or default if not found | `person.get("age", 0)`                  |
+| `dict.pop(key[, d])`  | Removes key and returns value (or default)       | `person.pop("age", 0)`                  |
+| `dict.update(other)`  | Updates dictionary with key-value pairs from other| `person.update({"country": "USA"})`     |
+| `dict.setdefault(key, default)` | Returns value if key exists, else sets it to default | `person.setdefault("salary", 50000)` |
+| `dict.copy()`         | Returns a shallow copy of the dictionary         | `copy_person = person.copy()`           |
+| `dict.clear()`        | Removes all items                                | `person.clear()`                        |
+
+### Iterating Over Dictionaries
+
+```python
+for key in person:
+  print(key, person[key])
+
+for key, value in person.items():
+  print(f"{key}: {value}")
+```
+
+### Dictionary Comprehension
+
+A concise way to create dictionaries:
+
+```python
+squares = {x: x**2 for x in range(5)}
+print(squares)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+### Common Interview Questions and Tips
+
+- **Check if key exists:** Use `in` operator: `'name' in person`
+- **Merge dictionaries:** `{**dict1, **dict2}` (Python 3.5+), or `dict1.update(dict2)`
+- **Reverse a dictionary:** `reversed_dict = {v: k for k, v in d.items()}`
+- **Count frequency:** Use a dictionary or `collections.Counter`
+- **Default values:** Use `dict.get()` or `collections.defaultdict`
+- **Sorting:** Use `sorted(d.items())` to sort by keys, or `sorted(d.items(), key=lambda x: x[1])` to sort by values
+
+### Example: Counting Character Frequency
+
+```python
+s = "banana"
+freq = {}
+for char in s:
+  freq[char] = freq.get(char, 0) + 1
+print(freq)  # {'b': 1, 'a': 3, 'n': 2}
+```
+
+### Nested Dictionaries
+
+Dictionaries can contain other dictionaries:
+
+```python
+students = {
+  "Alice": {"age": 20, "grade": "A"},
+  "Bob": {"age": 22, "grade": "B"}
+}
+print(students["Alice"]["grade"])  # A
+```
+
+> **Tip:** Dictionaries are unordered before Python 3.7; from 3.7+, insertion order is preserved.
+
+For more, see the [official Python dictionary documentation](https://docs.python.org/3/library/stdtypes.html#dict).
+
