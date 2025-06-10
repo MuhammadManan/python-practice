@@ -1258,3 +1258,92 @@ print(Person.get_count())  # Output: 1
 > **Tip:** Use static methods for independent utilities, and class methods when you need to access or modify class-level data.
 
 For more, see the [official Python documentation on static and class methods](https://docs.python.org/3/library/functions.html#classmethod).
+
+
+## Common Magic (Dunder) Methods in Python
+
+**Magic methods** (also called **dunder methods** for "double underscore") are special methods with names like `__init__`, `__str__`, etc. They enable Python's built-in behavior for objects, such as construction, representation, arithmetic, comparison, and more. Understanding these is important for interviews and writing idiomatic Python code.
+
+### Commonly Used Magic Methods
+
+| Method         | Purpose / When Called                        | Example Usage         |
+|----------------|----------------------------------------------|----------------------|
+| `__init__`     | Object initialization (constructor)          | `obj = MyClass()`    |
+| `__str__`      | String representation for `print()`/`str()`  | `print(obj)`         |
+| `__repr__`     | Official string representation (debugging)   | `repr(obj)`          |
+| `__len__`      | Length of object                             | `len(obj)`           |
+| `__getitem__`  | Access item via indexing                     | `obj[key]`           |
+| `__setitem__`  | Set item via indexing                        | `obj[key] = value`   |
+| `__delitem__`  | Delete item via indexing                     | `del obj[key]`       |
+| `__iter__`     | Return iterator for object                   | `for x in obj:`      |
+| `__next__`     | Return next item from iterator               | `next(obj)`          |
+| `__call__`     | Make object callable like a function         | `obj()`              |
+| `__eq__`       | Equality comparison (`==`)                   | `obj1 == obj2`       |
+| `__lt__`       | Less than comparison (`<`)                   | `obj1 < obj2`        |
+| `__add__`      | Addition operator (`+`)                      | `obj1 + obj2`        |
+| `__sub__`      | Subtraction operator (`-`)                   | `obj1 - obj2`        |
+| `__mul__`      | Multiplication operator (`*`)                | `obj1 * obj2`        |
+| `__contains__` | Membership test (`in`)                       | `item in obj`        |
+| `__enter__`    | Context manager entry (`with` statement)     | `with obj:`          |
+| `__exit__`     | Context manager exit (`with` statement)      |                      |
+
+### Example: Custom String Representation
+
+```python
+class Person:
+  def __init__(self, name):
+    self.name = name
+
+  def __str__(self):
+    return f"Person: {self.name}"
+
+  def __repr__(self):
+    return f"Person(name={self.name!r})"
+
+p = Person("Alice")
+print(str(p))   # Person: Alice
+print(repr(p))  # Person(name='Alice')
+```
+
+### Example: Operator Overloading
+
+```python
+class Point:
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+
+  def __add__(self, other):
+    return Point(self.x + other.x, self.y + other.y)
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+p3 = p1 + p2  # Calls __add__
+print(p3.x, p3.y)  # 4 6
+```
+
+### Example: Making an Object Iterable
+
+```python
+class Counter:
+  def __init__(self, low, high):
+    self.current = low
+    self.high = high
+
+  def __iter__(self):
+    return self
+
+  def __next__(self):
+    if self.current > self.high:
+      raise StopIteration
+    else:
+      self.current += 1
+      return self.current - 1
+
+for num in Counter(1, 3):
+  print(num)  # 1 2 3
+```
+
+> **Tip:** Implementing magic methods lets your objects integrate seamlessly with Python's syntax and built-in functions.
+
+For a full list, see the [official Python data model documentation](https://docs.python.org/3/reference/datamodel.html#special-method-names).
