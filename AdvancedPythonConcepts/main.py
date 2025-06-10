@@ -43,7 +43,7 @@ greet("Manan!")  # Output: Hello, Manan! (3 times)'''
 # print('after calling')
 
 
-class Employee:
+'''class Employee:
     company = "TechCorp"  # Class variable shared by all instances
 
     def __init__(self, name, salary):
@@ -80,7 +80,7 @@ class Employee:
 e = Employee("Manan Azhar", 70000)
 Employee.get_company()
 e.change_company("NewTech")
-e.get_company()
+e.get_company()'''
 # print(e.name)
 # print(e.salary)
 
@@ -96,3 +96,23 @@ print(e.name)'''
 
 # e.sum(5, 10)  # Output: 15
 # Employee.sum(33, 44)  # Output: 77
+
+class Employee:
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def __str__(self):
+        return f"Employee name: {self.name}, Salary: {self.salary}"
+    
+    def __repr__(self):
+        return f"Employee({self.name}, {self.salary})"
+    
+    def __len__(self):
+        return len(self.name)
+    
+e1 = Employee("Manan", 70000)
+print(str(e1))
+print(repr(e1))
+print(len(e1))  # Output: 5 (length of the name "Manan")
