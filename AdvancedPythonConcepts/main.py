@@ -225,13 +225,18 @@ if ans.strip().lower() == "exception":
 
 print(f"\nQuiz finished! Your score: {score}/20")'''
 
-num1 = int(input('Enter first number: '))
-num2 = int(input('Enter second number: '))
+# num1 = int(input('Enter first number: '))
+# num2 = int(input('Enter second number: '))
 
-if num2 == 0:
-    print("Error: Division by zero is not allowed.")
-    raise ValueError("Division by zero is not allowed.")
-    num3 = num1 / num2
+# if num2 == 0:
+#     print("Error: Division by zero is not allowed.")
+#     raise ValueError("Division by zero is not allowed.")
+#     num3 = num1 / num2
 
 
+from functools import reduce
 
+a = [1, 2, 3, 4, 5]
+
+sum = reduce(lambda x, y: x+y, a)
+print(sum)
