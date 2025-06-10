@@ -241,4 +241,20 @@ print(f"\nQuiz finished! Your score: {score}/20")'''
 # sum = reduce(lambda x, y: x+y, a)
 # print(sum)
 
+# def sum(*args):
+#     total = 0
+#     for arg in args:
+#         total += arg
+#     return total
 
+# print(sum(1, 2, 3))  # Output: 6
+# print(sum(1, 2, 3, 4, 5))  # Output: 15
+
+
+def marks(**kwargs):
+    print(kwargs)
+    print(kwargs.keys())
+    for item in kwargs.keys():
+        print(f"The marks of {item} is {kwargs[item]}")
+
+marks(Mali = 33, dill = 36 )
