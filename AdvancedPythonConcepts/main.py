@@ -225,6 +225,13 @@ if ans.strip().lower() == "exception":
 
 print(f"\nQuiz finished! Your score: {score}/20")'''
 
-raise 
+num1 = int(input('Enter first number: '))
+num2 = int(input('Enter second number: '))
+
+if num2 == 0:
+    print("Error: Division by zero is not allowed.")
+    raise ValueError("Division by zero is not allowed.")
+    num3 = num1 / num2
+
 
 
