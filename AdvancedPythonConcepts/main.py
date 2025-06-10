@@ -48,15 +48,20 @@ class Employee:
         self.name = name
         self.salary = salary 
     
+    @property
     def first_name(self):
           fname = self.name.split(" ")[0]
           print(fname)
           return fname
     
-    def set_first_name(self, fname):
+    @first_name.setter
+    def first_name(self, fname):
          self.name = f"{fname} {self.name.split(" ")[1]}"
         #  print(self.name)
 
+    @property
+    def fullname(self):
+         return self.name
 
 e = Employee("Manan Azhar", 70000)
 # print(e.name)
@@ -65,3 +70,7 @@ e = Employee("Manan Azhar", 70000)
 '''e.first_name()
 e.set_first_name("Hanan")
 print(e.name)'''
+
+print(e.name)
+e.first_name = "John"
+print(e.fullname)
