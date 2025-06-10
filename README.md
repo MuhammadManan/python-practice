@@ -1425,3 +1425,62 @@ except NegativeNumberError as e:
 > **Tip:** Use custom exceptions for application-specific error conditions and to improve code readability.
 
 For more, see the [official Python exceptions documentation](https://docs.python.org/3/tutorial/errors.html).
+
+
+## `map()`, `filter()`, and `reduce()` in Python
+
+These are powerful built-in functions for functional-style programming, allowing you to process and transform collections efficiently.
+
+### `map()`
+
+- Applies a function to every item in an iterable (like a list) and returns a map object (which can be converted to a list).
+- Syntax: `map(function, iterable)`
+
+**Example:**
+
+```python
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # [1, 4, 9, 16]
+```
+
+### `filter()`
+
+- Filters items in an iterable based on a function that returns `True` or `False`.
+- Only items where the function returns `True` are included.
+- Syntax: `filter(function, iterable)`
+
+**Example:**
+
+```python
+numbers = [1, 2, 3, 4, 5]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # [2, 4]
+```
+
+### `reduce()`
+
+- Applies a function cumulatively to the items of an iterable, reducing it to a single value.
+- Not a built-in in Python 3; import from `functools`.
+- Syntax: `reduce(function, iterable[, initializer])`
+
+**Example:**
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, numbers)
+print(product)  # 24
+```
+
+### Key Points
+
+- `map()` transforms each element.
+- `filter()` selects elements based on a condition.
+- `reduce()` aggregates elements into a single result.
+- All three can be replaced by list comprehensions or generator expressions for many use cases, but are concise and expressive for functional programming.
+
+> **Tip:** Use these functions for clean, readable data processing pipelines.
+
+For more, see the [official Python documentation on functional programming tools](https://docs.python.org/3/howto/functional.html).
