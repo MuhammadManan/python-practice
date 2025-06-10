@@ -44,6 +44,8 @@ greet("Manan!")  # Output: Hello, Manan! (3 times)'''
 
 
 class Employee:
+    company = "TechCorp"  # Class variable shared by all instances
+
     def __init__(self, name, salary):
         self.name = name
         self.salary = salary 
@@ -62,8 +64,23 @@ class Employee:
     @property
     def fullname(self):
          return self.name
+    
+    @staticmethod
+    def sum(a,b):
+        print(a + b)
+
+    @classmethod
+    def get_company(cls):
+        print(f"Company: {cls.company}")
+
+    @classmethod
+    def change_company(cls, new_company):
+        cls.company = new_company
 
 e = Employee("Manan Azhar", 70000)
+Employee.get_company()
+e.change_company("NewTech")
+e.get_company()
 # print(e.name)
 # print(e.salary)
 
@@ -71,7 +88,11 @@ e = Employee("Manan Azhar", 70000)
 e.set_first_name("Hanan")
 print(e.name)'''
 
-print(e.name)
+'''print(e.name)
 e.first_name = "John"
 print(e.fullname)
-print(e.name)
+print(e.name)'''
+
+
+# e.sum(5, 10)  # Output: 15
+# Employee.sum(33, 44)  # Output: 77
