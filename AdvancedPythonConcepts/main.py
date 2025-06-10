@@ -15,7 +15,7 @@ say_hello() '''# syntax sugar for say_hello = decorator(say_hello)
 # Hello!
 # Something is happening after the function is called.
 # Decorators are a way to modify or enhance functions or methods without changing their code.
-
+'''
 def repeat(n):
     def decorator(func):
         def wrapper(arg):
@@ -28,7 +28,7 @@ def repeat(n):
 def greet(name):
     print(f"Hello, {name}!")
 
-greet("Manan!")  # Output: Hello, Manan! (3 times)
+greet("Manan!")  # Output: Hello, Manan! (3 times)'''
 
 # greet("Alice")  # Output: Hello, Alice! (3 times)
 
@@ -41,3 +41,27 @@ greet("Manan!")  # Output: Hello, Manan! (3 times)
 # print('before calling')
 # wrp("Alice")  # Output: Hello, Alice! (3 times)
 # print('after calling')
+
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary 
+    
+    def first_name(self):
+          fname = self.name.split(" ")[0]
+          print(fname)
+          return fname
+    
+    def set_first_name(self, fname):
+         self.name = f"{fname} {self.name.split(" ")[1]}"
+        #  print(self.name)
+
+
+e = Employee("Manan Azhar", 70000)
+# print(e.name)
+# print(e.salary)
+
+'''e.first_name()
+e.set_first_name("Hanan")
+print(e.name)'''
