@@ -234,9 +234,11 @@ print(f"\nQuiz finished! Your score: {score}/20")'''
 #     num3 = num1 / num2
 
 
-from functools import reduce
+# from functools import reduce
 
-a = [1, 2, 3, 4, 5]
+# a = [1, 2, 3, 4, 5]
 
-sum = reduce(lambda x, y: x+y, a)
-print(sum)
+# sum = reduce(lambda x, y: x+y, a)
+# print(sum)
+
+

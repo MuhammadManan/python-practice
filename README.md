@@ -1484,3 +1484,49 @@ print(product)  # 24
 > **Tip:** Use these functions for clean, readable data processing pipelines.
 
 For more, see the [official Python documentation on functional programming tools](https://docs.python.org/3/howto/functional.html).
+
+
+## The Walrus Operator (`:=`) in Python
+
+The **walrus operator** (`:=`), introduced in Python 3.8, allows you to assign a value to a variable as part of an expression. This can make code more concise and readable, especially in situations where you want to use a value immediately after computing it.
+
+### Basic Syntax
+
+```python
+variable := expression
+```
+
+### Example: Using the Walrus Operator in a Loop
+
+Without the walrus operator:
+
+```python
+line = input("Enter text: ")
+while line != "":
+  print(f"You entered: {line}")
+  line = input("Enter text: ")
+```
+
+With the walrus operator:
+
+```python
+while (line := input("Enter text: ")) != "":
+  print(f"You entered: {line}")
+```
+
+### Example: List Comprehension
+
+```python
+results = [y for x in range(5) if (y := x * 2) > 5]
+print(results)  # [6, 8]
+```
+
+### Key Points
+
+- The walrus operator assigns and returns the value in a single expression.
+- Useful for reducing code duplication and improving efficiency.
+- Can be used in conditions, comprehensions, and anywhere an expression is allowed.
+
+> **Tip:** Use the walrus operator to simplify code, but avoid overusing it in ways that reduce readability.
+
+For more, see the [official Python documentation on assignment expressions](https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions).
