@@ -74,3 +74,4 @@ print(e.name)'''
 print(e.name)
 e.first_name = "John"
 print(e.fullname)
+print(e.name)

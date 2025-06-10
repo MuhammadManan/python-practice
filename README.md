@@ -1192,3 +1192,69 @@ print(p.name)      # Output: Bob
 > **Tip:** Use properties when you need to add logic to attribute access without changing how the attribute is used.
 
 For more, see the [official Python property documentation](https://docs.python.org/3/library/functions.html#property).
+
+
+## Static Methods and Class Methods in Python
+
+Python supports two special types of methods in classes: **static methods** and **class methods**. Both are defined using decorators and serve different purposes.
+
+### Static Methods
+
+- Defined with the `@staticmethod` decorator.
+- Do **not** receive an implicit first argument (`self` or `cls`).
+- Behave like regular functions but belong to the class's namespace.
+- Used for utility functions related to the class, but not dependent on class or instance data.
+
+**Example:**
+
+```python
+class MathUtils:
+  @staticmethod
+  def add(a, b):
+    return a + b
+
+print(MathUtils.add(2, 3))  # Output: 5
+```
+
+- You can call static methods on the class or an instance.
+
+### Class Methods
+
+- Defined with the `@classmethod` decorator.
+- Receive the class itself as the first argument, conventionally named `cls`.
+- Can access and modify class state that applies across all instances.
+- Commonly used as alternative constructors or for operations that affect the class as a whole.
+
+**Example:**
+
+```python
+class Person:
+  count = 0
+
+  def __init__(self, name):
+    self.name = name
+    Person.count += 1
+
+  @classmethod
+  def get_count(cls):
+    return cls.count
+
+print(Person.get_count())  # Output: 0
+p1 = Person("Alice")
+print(Person.get_count())  # Output: 1
+```
+
+- Class methods can be called on the class or an instance.
+
+### Key Differences
+
+| Feature         | Static Method         | Class Method           |
+|-----------------|----------------------|------------------------|
+| Decorator       | `@staticmethod`      | `@classmethod`         |
+| First Argument  | None                 | `cls` (the class)      |
+| Access to Class | No                   | Yes                    |
+| Use Case        | Utility functions    | Alternative constructors, class-wide operations |
+
+> **Tip:** Use static methods for independent utilities, and class methods when you need to access or modify class-level data.
+
+For more, see the [official Python documentation on static and class methods](https://docs.python.org/3/library/functions.html#classmethod).
