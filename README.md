@@ -1347,3 +1347,81 @@ for num in Counter(1, 3):
 > **Tip:** Implementing magic methods lets your objects integrate seamlessly with Python's syntax and built-in functions.
 
 For a full list, see the [official Python data model documentation](https://docs.python.org/3/reference/datamodel.html#special-method-names).
+
+## Exception Handling and Custom Errors in Python
+
+Exception handling is a mechanism that lets you gracefully handle runtime errors, preventing your program from crashing unexpectedly. Python uses `try`, `except`, `else`, and `finally` blocks for this purpose.
+
+### Basic Exception Handling
+
+```python
+try:
+  # Code that may raise an exception
+  x = int(input("Enter a number: "))
+  result = 10 / x
+except ValueError:
+  print("Invalid input! Please enter a valid integer.")
+except ZeroDivisionError:
+  print("Cannot divide by zero.")
+else:
+  print("Result is:", result)
+finally:
+  print("This block always runs.")
+```
+
+- **`try`**: Code that might raise an exception.
+- **`except`**: Handle specific exceptions.
+- **`else`**: Runs if no exception occurs.
+- **`finally`**: Always runs, for cleanup actions.
+
+### Catching Multiple Exceptions
+
+You can handle multiple exceptions in one block:
+
+```python
+try:
+  # risky code
+except (TypeError, ValueError) as e:
+  print("Error:", e)
+```
+
+### Raising Exceptions
+
+Use `raise` to trigger exceptions intentionally:
+
+```python
+def inverse(x):
+  if x == 0:
+    raise ValueError("Cannot take inverse of zero.")
+  return 1 / x
+```
+
+### Custom Exceptions
+
+You can define your own exception classes by inheriting from `Exception`:
+
+```python
+class NegativeNumberError(Exception):
+  """Raised when a negative number is encountered."""
+  pass
+
+def sqrt(x):
+  if x < 0:
+    raise NegativeNumberError("Cannot take square root of a negative number.")
+  return x ** 0.5
+
+try:
+  sqrt(-4)
+except NegativeNumberError as e:
+  print("Custom error:", e)
+```
+
+### Key Points
+
+- Use exception handling to make your code robust and user-friendly.
+- Always catch specific exceptions, not just a bare `except:`.
+- Custom exceptions make your error handling clearer and more descriptive.
+
+> **Tip:** Use custom exceptions for application-specific error conditions and to improve code readability.
+
+For more, see the [official Python exceptions documentation](https://docs.python.org/3/tutorial/errors.html).

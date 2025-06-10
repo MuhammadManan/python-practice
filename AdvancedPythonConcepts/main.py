@@ -118,7 +118,7 @@ print(repr(e1))
 print(len(e1))  # Output: 5 (length of the name "Manan")'''
 
 # Exception Handling & Custom Errors Quiz
-
+'''
 score = 0
 
 print("Python Exception Handling & Custom Errors Quiz\n")
@@ -223,6 +223,8 @@ ans = input("20. Fill in the blank: To create a custom exception, inherit from t
 if ans.strip().lower() == "exception":
     score += 1
 
-print(f"\nQuiz finished! Your score: {score}/20")
+print(f"\nQuiz finished! Your score: {score}/20")'''
+
+raise 
 
 
