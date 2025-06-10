@@ -1143,3 +1143,52 @@ greet("Alice")
 > **Tip:** Decorators are a powerful tool for code reuse and separation of concerns.
 
 For more, see the [official Python decorator documentation](https://docs.python.org/3/glossary.html#term-decorator).
+
+
+## Getters and Setters with Decorators in Python
+
+In Python, **getters** and **setters** are methods used to access and modify the value of private attributes. Instead of calling explicit methods, Python provides the `@property` decorator to define getters, and `@<property>.setter` to define setters, allowing attribute access syntax while still controlling access.
+
+### Why Use Getters and Setters?
+
+- Encapsulate internal data and control how attributes are accessed or modified.
+- Add validation, logging, or computed properties without changing the interface.
+
+### Example: Using `@property` and Setter
+
+```python
+class Person:
+  def __init__(self, name):
+    self._name = name  # Convention: _name is "protected"
+
+  @property
+  def name(self):
+    # Getter method
+    return self._name
+
+  @name.setter
+  def name(self, value):
+    # Setter method with validation
+    if not value:
+      raise ValueError("Name cannot be empty")
+    self._name = value
+
+p = Person("Alice")
+print(p.name)      # Calls getter, Output: Alice
+p.name = "Bob"     # Calls setter
+print(p.name)      # Output: Bob
+# p.name = ""      # Raises ValueError
+```
+
+- `@property` makes `name` accessible like an attribute, but with getter logic.
+- `@name.setter` allows assignment with validation.
+
+### Key Points
+
+- Use `@property` for read-only or computed attributes.
+- Use `@<property>.setter` to define how the attribute is set.
+- This approach keeps the interface clean and Pythonic.
+
+> **Tip:** Use properties when you need to add logic to attribute access without changing how the attribute is used.
+
+For more, see the [official Python property documentation](https://docs.python.org/3/library/functions.html#property).
