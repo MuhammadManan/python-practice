@@ -1530,3 +1530,68 @@ print(results)  # [6, 8]
 > **Tip:** Use the walrus operator to simplify code, but avoid overusing it in ways that reduce readability.
 
 For more, see the [official Python documentation on assignment expressions](https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions).
+
+
+## `*args` and `**kwargs` in Python
+
+Python functions can accept a variable number of arguments using `*args` and `**kwargs`. These are especially useful when you don't know in advance how many arguments will be passed to your function.
+
+### `*args` (Non-Keyword Arguments)
+
+- `*args` allows a function to accept any number of positional (non-keyword) arguments.
+- Inside the function, `args` is a tuple containing all extra positional arguments.
+
+**Example:**
+
+```python
+def add_all(*args):
+  return sum(args)
+
+print(add_all(1, 2, 3))        # Output: 6
+print(add_all(4, 5, 6, 7, 8))  # Output: 30
+```
+
+### `**kwargs` (Keyword Arguments)
+
+- `**kwargs` allows a function to accept any number of keyword arguments (i.e., named arguments).
+- Inside the function, `kwargs` is a dictionary containing all extra keyword arguments.
+
+**Example:**
+
+```python
+def print_info(**kwargs):
+  for key, value in kwargs.items():
+    print(f"{key}: {value}")
+
+print_info(name="Alice", age=30)
+# Output:
+# name: Alice
+# age: 30
+```
+
+### Using Both Together
+
+You can use both `*args` and `**kwargs` in the same function. `*args` must come before `**kwargs` in the parameter list.
+
+```python
+def demo(a, *args, **kwargs):
+  print(a)
+  print(args)
+  print(kwargs)
+
+demo(1, 2, 3, x=4, y=5)
+# Output:
+# 1
+# (2, 3)
+# {'x': 4, 'y': 5}
+```
+
+### Key Points
+
+- Use `*args` for variable-length positional arguments.
+- Use `**kwargs` for variable-length keyword arguments.
+- Useful for function wrappers, decorators, and flexible APIs.
+
+> **Tip:** You can also use `*` and `**` to unpack sequences and dictionaries when calling functions.
+
+For more, see the [official Python documentation on arbitrary argument lists](https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists).
