@@ -1721,3 +1721,73 @@ shutil.rmtree("dst_folder")  # Remove directory tree
 - Be careful with `shutil.rmtree()` and `os.remove()`—they permanently delete files/directories.
 
 For more, see the [official os documentation](https://docs.python.org/3/library/os.html) and [shutil documentation](https://docs.python.org/3/library/shutil.html).
+
+
+## Virtual Environments and Package Management in Python
+
+Managing dependencies is crucial for Python projects. **Virtual environments** allow you to isolate project-specific packages, preventing conflicts between projects and keeping your global Python installation clean.
+
+### Why Use Virtual Environments?
+
+- Isolate dependencies for each project.
+- Avoid version conflicts between packages.
+- Reproduce environments easily for development, testing, and deployment.
+
+### Creating and Activating a Virtual Environment
+
+Use the built-in `venv` module (Python 3.3+):
+
+```bash
+python -m venv venv
+```
+
+- This creates a `venv` directory with an isolated Python environment.
+
+**Activate the environment:**
+
+- **Windows:**
+  ```bash
+  venv\Scripts\activate
+  ```
+- **macOS/Linux:**
+  ```bash
+  source venv/bin/activate
+  ```
+
+- Your shell prompt will change to indicate the environment is active.
+
+**Deactivate** with:
+```bash
+deactivate
+```
+
+### Installing Packages with `pip`
+
+- Use `pip` to install, upgrade, or remove packages inside the active environment.
+
+```bash
+pip install requests
+pip uninstall requests
+pip list
+```
+
+### Managing Dependencies with `requirements.txt`
+
+- Save installed packages:
+  ```bash
+  pip freeze > requirements.txt
+  ```
+- Install all dependencies from a file:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+### Key Points
+
+- Always use a virtual environment for each project.
+- Use `pip` for package management.
+- Track dependencies with `requirements.txt` for reproducibility.
+
+> **Tip:** Tools like [pipenv](https://pipenv.pypa.io/), [poetry](https://python-poetry.org/), and [conda](https://docs.conda.io/) offer advanced environment and dependency management.
+
+For more, see the [official Python venv documentation](https://docs.python.org/3/library/venv.html) and [pip documentation](https://pip.pypa.io/en/stable/).
