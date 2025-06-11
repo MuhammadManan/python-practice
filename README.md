@@ -252,6 +252,74 @@ print(a | b)  # 7 (0b0111)
 
 > **Tip:** Use parentheses to clarify complex expressions and control operator precedence.
 
+## Variable Scope and the `global` Keyword in Python
+
+**Scope** refers to the region of a program where a variable is recognized. Python uses the LEGB rule to resolve variable names:
+
+- **L**ocal: Names assigned within a function.
+- **E**nclosing: Names in the local scope of enclosing functions (nested functions).
+- **G**lobal: Names assigned at the top-level of a module or declared global in a function.
+- **B**uilt-in: Names preassigned in Python (e.g., `len`, `print`).
+
+### Local vs. Global Variables
+
+- Variables defined inside a function are **local** to that function.
+- Variables defined outside any function are **global**.
+
+```python
+x = 10  # Global variable
+
+def foo():
+  x = 5  # Local variable
+  print(x)  # 5
+
+foo()
+print(x)  # 10
+```
+
+### The `global` Keyword
+
+To modify a global variable inside a function, use the `global` keyword:
+
+```python
+count = 0
+
+def increment():
+  global count
+  count += 1
+
+increment()
+print(count)  # 1
+```
+
+Without `global`, assigning to `count` inside the function would create a new local variable.
+
+### The `nonlocal` Keyword
+
+For nested functions, use `nonlocal` to modify a variable in the enclosing (non-global) scope:
+
+```python
+def outer():
+  x = 10
+  def inner():
+    nonlocal x
+    x += 1
+  inner()
+  print(x)  # 11
+
+outer()
+```
+
+### Key Points
+
+- Use local variables for function-specific data.
+- Use `global` only when you need to modify a global variable inside a function.
+- Prefer passing variables as arguments and returning values for better code clarity.
+
+> **Tip:** Avoid excessive use of `global`—it can make code harder to understand and debug.
+
+For more, see the [official Python documentation on namespaces and scope](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces).
+
 
 ## String Methods and Functions in Python
 
