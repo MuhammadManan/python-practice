@@ -1662,3 +1662,62 @@ with open("copy.txt", "w") as f:
 > **Tip:** For binary files (images, etc.), use `'rb'` or `'wb'` modes.
 
 For more, see the [official Python file I/O documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files).
+
+
+## Working with Files and Directories: `os` and `shutil` Modules
+
+Python's `os` and `shutil` modules provide powerful tools for interacting with the file system—creating, deleting, moving, and copying files and directories.
+
+### Common `os` Module Functions
+
+- `os.getcwd()`: Get the current working directory.
+- `os.chdir(path)`: Change the current working directory.
+- `os.listdir(path=".")`: List files and directories in the given path.
+- `os.mkdir(path)`: Create a new directory.
+- `os.makedirs(path)`: Create directories recursively.
+- `os.remove(path)`: Delete a file.
+- `os.rmdir(path)`: Remove an empty directory.
+- `os.rename(src, dst)`: Rename a file or directory.
+- `os.path.exists(path)`: Check if a path exists.
+- `os.path.join(a, b, ...)`: Join path components safely.
+
+**Example:**
+
+```python
+import os
+
+print(os.getcwd())  # Current directory
+os.mkdir("test_dir")  # Create directory
+os.chdir("test_dir")  # Change directory
+print(os.listdir())  # List contents
+os.chdir("..")  # Go back
+os.rmdir("test_dir")  # Remove directory
+```
+
+### Common `shutil` Module Functions
+
+- `shutil.copy(src, dst)`: Copy a file.
+- `shutil.copy2(src, dst)`: Copy a file with metadata.
+- `shutil.copytree(src, dst)`: Recursively copy an entire directory tree.
+- `shutil.move(src, dst)`: Move a file or directory.
+- `shutil.rmtree(path)`: Remove a directory tree (including all files/subdirs).
+- `shutil.disk_usage(path)`: Get disk usage statistics.
+
+**Example:**
+
+```python
+import shutil
+
+shutil.copy("file.txt", "copy.txt")  # Copy file
+shutil.move("copy.txt", "archive/copy.txt")  # Move file
+shutil.copytree("src_folder", "dst_folder")  # Copy directory tree
+shutil.rmtree("dst_folder")  # Remove directory tree
+```
+
+### Tips
+
+- Always use `os.path.join()` for cross-platform path construction.
+- Use `with` statements and exception handling for safe file operations.
+- Be careful with `shutil.rmtree()` and `os.remove()`—they permanently delete files/directories.
+
+For more, see the [official os documentation](https://docs.python.org/3/library/os.html) and [shutil documentation](https://docs.python.org/3/library/shutil.html).
