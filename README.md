@@ -1923,3 +1923,82 @@ with open("image.png", "wb") as f:
 > **Tip:** Always check the response status and handle exceptions for robust code.
 
 For more, see the [official requests documentation](https://docs.python-requests.org/).
+
+## Regular Expressions (Regex) in Python
+
+**Regular expressions** (regex) are patterns used to match, search, and manipulate strings. Python provides the `re` module for working with regular expressions, which is essential for text processing, validation, and data extraction—common in interviews and real-world tasks.
+
+### Basic Usage
+
+Import the `re` module:
+
+```python
+import re
+```
+
+**Common functions:**
+
+- `re.search(pattern, string)`: Returns a match object if the pattern is found anywhere in the string.
+- `re.match(pattern, string)`: Checks for a match only at the beginning of the string.
+- `re.findall(pattern, string)`: Returns all non-overlapping matches as a list.
+- `re.sub(pattern, repl, string)`: Replaces matches with a replacement string.
+- `re.split(pattern, string)`: Splits the string by the occurrences of the pattern.
+
+### Common Patterns and Examples
+
+| Pattern      | Description                  | Example Match      |
+|--------------|-----------------------------|--------------------|
+| `\d`         | Digit (0-9)                  | `re.findall(r"\d+", "abc123")` → `['123']` |
+| `\w`         | Word character (a-z, A-Z, 0-9, _) | `re.findall(r"\w+", "hello_123!")` → `['hello_123']` |
+| `\s`         | Whitespace                   | `re.findall(r"\s+", "a b\tc")` → `[' ', '\t']` |
+| `.`          | Any character except newline  | `re.findall(r".", "abc")` → `['a', 'b', 'c']` |
+| `^` / `$`    | Start / end of string        | `re.match(r"^abc", "abcdef")` |
+| `[a-z]`      | Any lowercase letter         | `re.findall(r"[a-z]", "aB1")` → `['a']` |
+| `[^0-9]`     | Not a digit                  | `re.findall(r"[^0-9]", "a1b2")` → `['a', 'b']` |
+| `a|b`        | a or b                       | `re.findall(r"a|b", "cat bat")` → `['a', 'b', 'a']` |
+| `*`, `+`, `?`| 0+ / 1+ / 0 or 1 repetitions | `re.findall(r"ab*", "abbb ac")` → `['abbb', 'a']` |
+
+### Practical Examples
+
+**1. Validate Email Address**
+
+```python
+pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+email = "test@example.com"
+if re.match(pattern, email):
+  print("Valid email")
+```
+
+**2. Extract All Numbers from a String**
+
+```python
+text = "Order 123, shipped on 2023-05-01"
+numbers = re.findall(r"\d+", text)
+print(numbers)  # ['123', '2023', '05', '01']
+```
+
+**3. Replace Multiple Spaces with a Single Space**
+
+```python
+s = "This   is   spaced"
+clean = re.sub(r"\s+", " ", s)
+print(clean)  # "This is spaced"
+```
+
+**4. Split a String by Comma or Semicolon**
+
+```python
+data = "apple,banana;cherry"
+items = re.split(r"[,;]", data)
+print(items)  # ['apple', 'banana', 'cherry']
+```
+
+### Interview Tips
+
+- Know how to use `re.search`, `re.match`, `re.findall`, and `re.sub`.
+- Be familiar with common patterns: digits (`\d`), words (`\w`), whitespace (`\s`), anchors (`^`, `$`), and quantifiers (`*`, `+`, `?`).
+- Practice writing regex for validation (emails, phone numbers), extraction (numbers, words), and substitution (removing unwanted characters).
+
+> **Tip:** Use raw strings (`r"pattern"`) to avoid issues with escape sequences.
+
+For more, see the [official Python `re` documentation](https://docs.python.org/3/library/re.html).
