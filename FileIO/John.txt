@@ -1,18 +1,3 @@
-# Reading file
-'''f = open("Manan.txt", "r")
-# print(f)
 
-content = f.read()
-print(content)
-
-f.close() '''
-
-
-# Writing to a file
-f = open("John.txt", "w")
-string = '''
 John is a software engineer with over 10 years of experience in the tech industry. He specializes in Python and has worked on various projects ranging from web development to data analysis. In his free time, he enjoys hiking and photography.
 John is passionate about learning new technologies and sharing his knowledge with others. He believes in the power of collaboration and often participates in open-source projects. His goal is to create impactful software that makes a difference in people's lives.
-'''
-f.write(string)
-f.close()
