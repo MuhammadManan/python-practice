@@ -11,7 +11,7 @@ with open("octocat.json", "w") as file:
 
 import re
 # working with re module
-text = "The quick brown fox jumps over the lazy dog."
+text = "The quick lazy brown fox jumps over the lazy dog."
 # match = re.search("brown", text)
 # print(match)
 # if match:
@@ -21,9 +21,14 @@ text = "The quick brown fox jumps over the lazy dog."
 # else:
 #     print("No match found.")
 
-matches = re.findall("the", text, re.IGNORECASE)
-print("Matches found:", matches)
-if matches:
-    print("Number of matches:", len(matches))
-    for match in matches:
-        print("Match:", match)
+# matches = re.findall("the", text, re.IGNORECASE)
+# print("Matches found:", matches)
+# if matches:
+#     print("Number of matches:", len(matches))
+#     for match in matches:
+#         print("Match:", match)
+
+
+replace_text = re.sub("lazy", "active", text)
+print("Replaced text:", replace_text)
+# if you want to replace all occurrences of a word, use re.sub
