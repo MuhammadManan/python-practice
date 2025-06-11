@@ -2001,4 +2001,4 @@ print(items)  # ['apple', 'banana', 'cherry']
 
 > **Tip:** Use raw strings (`r"pattern"`) to avoid issues with escape sequences.
 
-For more, see the [official Python `re` documentation](https://docs.python.org/3/library/re.html).
+For more, see the [official Python `re` documentation](https://docs.python.org/3/library/re.html). and wanna dive deeper, go to this link https://regexr.com/
