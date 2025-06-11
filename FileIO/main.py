@@ -18,9 +18,18 @@ f.write(string)
 f.close()'''
 
 # appending to a file
-f = open ("John.txt", "a")
+'''f = open ("John.txt", "a")
 string = '''
-John is also an advocate for clean code and best practices in software development. He regularly attends tech meetups and conferences to stay updated with the latest trends in the industry. His dedication to continuous learning and improvement has earned him respect among his peers.
-'''
-f.write(string)
+# John is also an advocate for clean code and best practices in software development. He regularly attends tech meetups and conferences to stay updated with the latest trends in the industry. His dedication to continuous learning and improvement has earned him respect among his peers.
+# '''
+# f.write(string)
+# f.close()'''
+
+
+# Reading a file line by line
+f = open("John.txt","r")
+
+for line in f:
+    print(line)
+
 f.close()
