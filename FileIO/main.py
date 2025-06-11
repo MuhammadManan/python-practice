@@ -35,6 +35,15 @@ for line in f:
 f.close()'''
 
 # Reading a file using with statement
-with open("Manan.txt", "r") as f:
+'''with open("Manan.txt", "r") as f:
     content = f.read()
-    print(content)
+    print(content)'''
+
+
+import os
+a = os.listdir("dir")
+print(a)
+
+print(os.getcwd())
+print(os.path.exists("John.txt"))
+os.remove("dir/sample1.txt")
