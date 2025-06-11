@@ -1859,3 +1859,67 @@ pip list
 > **Tip:** Tools like [pipenv](https://pipenv.pypa.io/), [poetry](https://python-poetry.org/), and [conda](https://docs.conda.io/) offer advanced environment and dependency management.
 
 For more, see the [official Python venv documentation](https://docs.python.org/3/library/venv.html) and [pip documentation](https://pip.pypa.io/en/stable/).
+
+
+## The `requests` Module in Python
+
+The [`requests`](https://docs.python-requests.org/) module is a popular third-party library for making HTTP requests in Python. It provides a simple and user-friendly way to interact with web services and APIs, handling tasks like sending GET/POST requests, handling query parameters, headers, cookies, and more.
+
+### Installing `requests`
+
+Install via pip:
+
+```bash
+pip install requests
+```
+
+### Basic Usage
+
+**GET request:**
+
+```python
+import requests
+
+response = requests.get("https://api.github.com")
+print(response.status_code)      # HTTP status code
+print(response.text)             # Response body as string
+print(response.json())           # Parse JSON response (if applicable)
+```
+
+**POST request:**
+
+```python
+payload = {"name": "Alice", "age": 30}
+response = requests.post("https://httpbin.org/post", json=payload)
+print(response.json())
+```
+
+### Common Features
+
+- **Query parameters:**  
+  `requests.get(url, params={"key": "value"})`
+- **Custom headers:**  
+  `requests.get(url, headers={"Authorization": "Bearer TOKEN"})`
+- **Timeouts:**  
+  `requests.get(url, timeout=5)`
+- **Handling errors:**  
+  Use `response.raise_for_status()` to raise exceptions for HTTP errors.
+
+### Example: Downloading a File
+
+```python
+url = "https://example.com/image.png"
+response = requests.get(url)
+with open("image.png", "wb") as f:
+    f.write(response.content)
+```
+
+### Key Points
+
+- `requests` simplifies HTTP requests compared to Python's built-in `urllib`.
+- Supports sessions, cookies, authentication, and more.
+- Widely used for web scraping, API integration, and automation.
+
+> **Tip:** Always check the response status and handle exceptions for robust code.
+
+For more, see the [official requests documentation](https://docs.python-requests.org/).
