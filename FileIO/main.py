@@ -40,11 +40,19 @@ f.close()'''
     print(content)'''
 
 
-import os
+'''import os
 a = os.listdir("dir")
 print(a)
 
 print(os.getcwd())
 print(os.path.exists("John.txt"))
 # os.remove("dir/sample1.txt")
-os.rmdir("dir/sub")
+os.rmdir("dir/sub")'''
+
+
+# shutil module for file operations
+import shutil, os
+# shutil.rmtree("dir")  # Remove a directory and all its contents
+# os.mkdir('new_dir')
+# shutil.move("John.txt", "new_dir/")
+shutil.copy("Manan.txt", "mnan.txt")
