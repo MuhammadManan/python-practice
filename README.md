@@ -2002,3 +2002,81 @@ print(items)  # ['apple', 'banana', 'cherry']
 > **Tip:** Use raw strings (`r"pattern"`) to avoid issues with escape sequences.
 
 For more, see the [official Python `re` documentation](https://docs.python.org/3/library/re.html). and wanna dive deeper, go to this link https://regexr.com/
+
+## Multithreading in Python
+
+**Multithreading** allows a program to run multiple threads (smaller units of a process) concurrently, enabling tasks like I/O operations, waiting for user input, or handling multiple network connections to run in parallel. This can improve responsiveness and resource utilization, especially for I/O-bound tasks.
+
+### The `threading` Module
+
+Python's built-in [`threading`](https://docs.python.org/3/library/threading.html) module provides tools for creating and managing threads.
+
+#### Basic Example
+
+```python
+import threading
+
+def print_numbers():
+  for i in range(5):
+    print(f"Number: {i}")
+
+def print_letters():
+  for letter in "abcde":
+    print(f"Letter: {letter}")
+
+t1 = threading.Thread(target=print_numbers)
+t2 = threading.Thread(target=print_letters)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+print("Done!")
+```
+
+- `Thread(target=...)` creates a new thread to run a function.
+- `.start()` begins thread execution.
+- `.join()` waits for the thread to finish.
+
+### When to Use Multithreading
+
+- **I/O-bound tasks:** File operations, network requests, user input, etc.
+- **Not for CPU-bound tasks:** Due to Python's Global Interpreter Lock (GIL), threads do not run Python bytecode in true parallel for CPU-heavy work. Use `multiprocessing` for CPU-bound parallelism.
+
+### Thread Synchronization
+
+When threads share data, use synchronization primitives to avoid race conditions:
+
+- `threading.Lock()`: Mutual exclusion lock.
+- `threading.Event()`, `threading.Semaphore()`, etc.
+
+**Example with Lock:**
+
+```python
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment():
+  global counter
+  for _ in range(1000):
+    with lock:
+      counter += 1
+
+threads = [threading.Thread(target=increment) for _ in range(10)]
+for t in threads: t.start()
+for t in threads: t.join()
+print(counter)  # 10000
+```
+
+### Key Points
+
+- Use threads for I/O-bound concurrency.
+- Protect shared data with locks to prevent race conditions.
+- For CPU-bound tasks, consider the `multiprocessing` module.
+
+> **Tip:** Threading can make programs more responsive, but always be careful with shared state and synchronization.
+
+For more, see the [official Python threading documentation](https://docs.python.org/3/library/threading.html).
