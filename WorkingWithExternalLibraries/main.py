@@ -12,11 +12,18 @@ with open("octocat.json", "w") as file:
 import re
 # working with re module
 text = "The quick brown fox jumps over the lazy dog."
-match = re.search("brown", text)
-print(match)
-if match:
-    print("Match found:", match.group())
-    print(match.start())
-    print(match.end())
-else:
-    print("No match found.")
+# match = re.search("brown", text)
+# print(match)
+# if match:
+#     print("Match found:", match.group())
+#     print(match.start())
+#     print(match.end())
+# else:
+#     print("No match found.")
+
+matches = re.findall("the", text, re.IGNORECASE)
+print("Matches found:", matches)
+if matches:
+    print("Number of matches:", len(matches))
+    for match in matches:
+        print("Match:", match)
