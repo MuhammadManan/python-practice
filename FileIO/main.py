@@ -27,9 +27,14 @@ string = '''
 
 
 # Reading a file line by line
-f = open("John.txt","r")
+'''f = open("John.txt","r")
 
 for line in f:
     print(line)
 
-f.close()
+f.close()'''
+
+# Reading a file using with statement
+with open("Manan.txt", "r") as f:
+    content = f.read()
+    print(content)

@@ -1595,3 +1595,70 @@ demo(1, 2, 3, x=4, y=5)
 > **Tip:** You can also use `*` and `**` to unpack sequences and dictionaries when calling functions.
 
 For more, see the [official Python documentation on arbitrary argument lists](https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists).
+
+
+## Reading, Writing, and Appending Files in Python
+
+Python provides built-in functions to work with files, allowing you to read from, write to, and append data to files easily using the `open()` function.
+
+### Opening a File
+
+Use the `open()` function with a file path and mode:
+
+- `'r'` – Read (default)
+- `'w'` – Write (creates/truncates file)
+- `'a'` – Append (writes at end of file)
+- `'b'` – Binary mode (add to mode, e.g., `'rb'`)
+- `'+'` – Read and write (e.g., `'r+'`, `'w+'`)
+
+### Reading a File
+
+```python
+with open("example.txt", "r") as f:
+  content = f.read()
+  print(content)
+```
+
+- `read()` reads the entire file as a string.
+- `readline()` reads one line at a time.
+- `readlines()` reads all lines into a list.
+
+### Writing to a File
+
+```python
+with open("output.txt", "w") as f:
+  f.write("Hello, world!\n")
+  f.write("This will overwrite the file.")
+```
+
+- `'w'` mode creates the file if it doesn't exist or overwrites it if it does.
+
+### Appending to a File
+
+```python
+with open("output.txt", "a") as f:
+  f.write("\nThis line is appended.")
+```
+
+- `'a'` mode adds content to the end of the file without deleting existing data.
+
+### Example: Reading and Writing
+
+```python
+# Read from a file
+with open("input.txt", "r") as f:
+  data = f.read()
+
+# Write to a new file
+with open("copy.txt", "w") as f:
+  f.write(data)
+```
+
+### Best Practices
+
+- Use `with` statement to automatically close files.
+- Always handle exceptions (e.g., with `try`/`except`) for robust code.
+
+> **Tip:** For binary files (images, etc.), use `'rb'` or `'wb'` modes.
+
+For more, see the [official Python file I/O documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files).
