@@ -46,4 +46,5 @@ print(a)
 
 print(os.getcwd())
 print(os.path.exists("John.txt"))
-os.remove("dir/sample1.txt")
+# os.remove("dir/sample1.txt")
+os.rmdir("dir/sub")
