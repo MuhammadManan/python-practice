@@ -2,6 +2,55 @@
 
 Learning Python with CodeWithHarry
 
+## Table of Contents
+
+- [Python Practice Projects 🐍](#python-practice-projects-🐍)
+- [Topics Covered](#topics-covered)
+- [How to Run](#how-to-run)
+- [Note on Python's Typing](#note-on-pythons-typing)
+- [Variable Naming Rules in Python](#variable-naming-rules-in-python)
+- [Basic Rules of Python](#basic-rules-of-python)
+- [Built-in Data Types in Python](#built-in-data-types-in-python)
+- [Typecasting in Python](#typecasting-in-python)
+- [Operators in Python](#operators-in-python)
+  - [Arithmetic Operators](#1-arithmetic-operators)
+  - [Assignment Operators](#2-assignment-operators)
+  - [Comparison Operators](#3-comparison-operators)
+  - [Logical Operators](#4-logical-operators)
+  - [Membership Operators](#5-membership-operators)
+  - [Identity Operators](#6-identity-operators)
+  - [Bitwise Operators](#7-bitwise-operators)
+- [Variable Scope and the `global` Keyword in Python](#variable-scope-and-the-global-keyword-in-python)
+- [String Methods and Functions in Python](#string-methods-and-functions-in-python)
+- [String Formatting: f-Strings and `format()`](#string-formatting-f-strings-and-format)
+- [Functions and Arguments in Python](#functions-and-arguments-in-python)
+- [Lambda Functions in Python](#lambda-functions-in-python)
+- [List Methods in Python](#list-methods-in-python)
+- [List Comprehension](#list-comprehension)
+- [Tuples in Python](#tuples-in-python)
+- [Sets in Python](#sets-in-python)
+- [Dictionaries in Python](#dictionaries-in-python)
+- [Object-Oriented Programming (OOP) in Python](#object-oriented-programming-oop-in-python)
+  - [Instance vs. Class Attributes](#instance-vs-class-attributes)
+  - [Object Introspection in Python](#object-introspection-in-python)
+  - [Inheritance and the `super()` Function in Python](#inheritance-and-the-super-function-in-python)
+  - [Method Overriding in Python](#method-overriding-in-python)
+  - [Operator Overloading in Python](#operator-overloading-in-python)
+  - [Decorators in Python](#decorators-in-python)
+  - [Getters and Setters with Decorators in Python](#getters-and-setters-with-decorators-in-python)
+  - [Static Methods and Class Methods in Python](#static-methods-and-class-methods-in-python)
+  - [Common Magic (Dunder) Methods in Python](#common-magic-dunder-methods-in-python)
+- [Exception Handling and Custom Errors in Python](#exception-handling-and-custom-errors-in-python)
+- [`map()`, `filter()`, and `reduce()` in Python](#map-filter-and-reduce-in-python)
+- [The Walrus Operator (`:=`) in Python](#the-walrus-operator--in-python)
+- [`*args` and `**kwargs` in Python](#args-and-kwargs-in-python)
+- [Reading, Writing, and Appending Files in Python](#reading-writing-and-appending-files-in-python)
+- [Working with Files and Directories: `os` and `shutil` Modules](#working-with-files-and-directories-os-and-shutil-modules)
+- [Virtual Environments and Package Management in Python](#virtual-environments-and-package-management-in-python)
+- [The `requests` Module in Python](#the-requests-module-in-python)
+- [Regular Expressions (Regex) in Python](#regular-expressions-regex-in-python)
+- [Multithreading in Python](#multithreading-in-python)
+
 ## Python Practice Projects 🐍
 
 This repository contains Python practice projects I'm working on while learning from [CodeWithHarry](https://www.codewithharry.com/). These help me understand core Python concepts.
@@ -2080,3 +2129,5 @@ print(counter)  # 10000
 > **Tip:** Threading can make programs more responsive, but always be careful with shared state and synchronization.
 
 For more, see the [official Python threading documentation](https://docs.python.org/3/library/threading.html).
+
+
