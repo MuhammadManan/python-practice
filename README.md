@@ -2130,4 +2130,160 @@ print(counter)  # 10000
 
 For more, see the [official Python threading documentation](https://docs.python.org/3/library/threading.html).
 
+## Common Python Interview Questions
+
+Here are 100+ frequently asked Python interview questions, covering basics to advanced topics:
+
+1. What is Python? List its key features.
+2. What are the differences between Python 2 and Python 3?
+3. How do you install Python packages?
+4. What is PEP 8 and why is it important?
+5. What are mutable and immutable types? Give examples.
+6. What is the difference between a list and a tuple?
+7. How do you create a dictionary in Python?
+8. What is a set? How is it different from a list?
+9. How do you add and remove elements from a list?
+10. How do you reverse a string in Python?
+11. What is slicing? Give examples.
+12. How do you check if a key exists in a dictionary?
+13. What is the difference between `append()` and `extend()` for lists?
+14. How do you copy a list? Explain shallow vs deep copy.
+15. What is the purpose of the `self` keyword in class methods?
+16. How do you define a function in Python?
+17. What are *args and **kwargs?
+18. What is a lambda function? Give an example.
+19. How do you handle exceptions in Python?
+20. What is the difference between `is` and `==`?
+21. What is the Global Interpreter Lock (GIL)?
+22. How does Python manage memory?
+23. What is garbage collection in Python?
+24. What is a module? How do you import one?
+25. What is a package in Python?
+26. How do you create a virtual environment?
+27. What is pip? How do you use it?
+28. How do you read and write files in Python?
+29. What is the difference between `read()`, `readline()`, and `readlines()`?
+30. How do you open a file for appending?
+31. What is a context manager? How does `with` work?
+32. What are decorators? Give an example.
+33. What is a generator? How do you create one?
+34. What is the difference between `yield` and `return`?
+35. What is list comprehension? Give an example.
+36. How do you filter elements in a list?
+37. What is the difference between `map()`, `filter()`, and `reduce()`?
+38. How do you sort a list of dictionaries by a key?
+39. What is a class? How do you create one?
+40. What is inheritance? Give an example.
+41. What is method overriding?
+42. What is multiple inheritance? How does Python handle it?
+43. What is the `super()` function?
+44. What are class methods and static methods?
+45. What is encapsulation?
+46. What is polymorphism?
+47. What are dunder (magic) methods? Name a few.
+48. How do you make an object iterable?
+49. What is the purpose of `__init__`?
+50. What is `__str__` vs `__repr__`?
+51. How do you implement operator overloading?
+52. What is a property? How do you use `@property`?
+53. How do you create a singleton class?
+54. What is the difference between `@staticmethod` and `@classmethod`?
+55. What is monkey patching?
+56. What is duck typing?
+57. What is the difference between `deepcopy` and `shallow copy`?
+58. How do you serialize and deserialize objects in Python?
+59. What is the `pickle` module?
+60. How do you work with JSON in Python?
+61. What is the difference between `json.dumps()` and `json.loads()`?
+62. How do you handle command-line arguments?
+63. What is the `argparse` module?
+64. How do you run a Python script from the command line?
+65. What is the `if __name__ == "__main__":` construct?
+66. How do you measure execution time of code?
+67. What is the `timeit` module?
+68. How do you profile Python code?
+69. What is the `logging` module? How do you use it?
+70. How do you debug Python code?
+71. What is the `pdb` module?
+72. What are docstrings? How do you write them?
+73. What is unittest? How do you write a test case?
+74. What is pytest?
+75. How do you mock objects in tests?
+76. What is the difference between `assert` and raising exceptions?
+77. What is a regular expression? How do you use the `re` module?
+78. How do you match and extract groups in regex?
+79. How do you replace text using regex?
+80. What is list unpacking?
+81. How do you swap two variables?
+82. What is the walrus operator (`:=`)?
+83. What is a comprehension (list, dict, set)?
+84. How do you flatten a nested list?
+85. What is a closure?
+86. What is a higher-order function?
+87. What is currying?
+88. What is memoization?
+89. What is the difference between `@lru_cache` and manual caching?
+90. How do you handle Unicode in Python?
+91. What is the difference between bytes and str?
+92. How do you encode and decode strings?
+93. What is the `os` module? Name some common functions.
+94. How do you list files in a directory?
+95. How do you copy/move/delete files and directories?
+96. What is the `shutil` module?
+97. How do you get the current working directory?
+98. How do you check if a file exists?
+99. What is the `requests` module? How do you make a GET/POST request?
+100. How do you handle HTTP errors in requests?
+101. How do you parse JSON from a web response?
+102. What is web scraping? Which libraries can you use?
+103. What is BeautifulSoup?
+104. What is multithreading? How do you create a thread?
+105. What is multiprocessing? How is it different from threading?
+106. What is the GIL and how does it affect concurrency?
+107. How do you synchronize threads?
+108. What is a lock? What is a semaphore?
+109. How do you share data between processes?
+110. What is an event loop? What is asyncio?
+111. How do you create a coroutine?
+112. What is an async function?
+113. How do you run asynchronous code?
+114. What is the difference between synchronous and asynchronous code?
+115. What is a context manager? How do you create a custom one?
+116. What is the `with` statement used for?
+117. How do you handle resource cleanup?
+118. What is the difference between `del` and `remove()`?
+119. How do you count frequency of elements in a list?
+120. What is `collections.Counter`?
+121. What is a namedtuple?
+122. What is a defaultdict?
+123. What is an OrderedDict?
+124. How do you merge two dictionaries?
+125. How do you sort a dictionary by value?
+126. How do you reverse a dictionary?
+127. How do you remove duplicates from a list?
+128. How do you check if a string is a palindrome?
+129. How do you find the intersection of two lists?
+130. How do you zip and unzip lists?
+131. What is the difference between `range()` and `xrange()`?
+132. How do you generate random numbers?
+133. What is the `random` module?
+134. How do you shuffle a list?
+135. How do you sample random elements from a list?
+136. What is the difference between `input()` and `raw_input()`?
+137. How do you format strings? (f-strings, `format()`, `%`)
+138. How do you pad strings?
+139. How do you split and join strings?
+140. How do you remove whitespace from a string?
+141. How do you check if a string contains a substring?
+142. How do you replace characters in a string?
+143. How do you convert a string to a list and vice versa?
+144. How do you check if a string is numeric?
+145. How do you capitalize a string?
+146. How do you check if a list is empty?
+147. How do you get the length of a list, tuple, or dict?
+148. How do you check the type of a variable?
+149. What is introspection? How do you use `dir()`, `type()`, `id()`?
+150. How do you document your code?
+
+> **Tip:** Practice writing code for common tasks like reversing a string, finding duplicates, implementing custom classes, and using built-in modules.
 
